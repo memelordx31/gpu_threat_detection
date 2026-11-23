@@ -1,6 +1,6 @@
 # GPU-Accelerated Authentication Threat Detection
 
-Three CUDA detectors score every LANL cyber1 authentication event: lateral movement, fan-out and failed-logon bursts. A CUDA scoring kernel combines the three into one per-event score, and a Python driver handles preprocessing, the runs and the evaluation. Each CUDA program also carries a CPU version of the same algorithm. It times both versions and checks that they agree, which is what the 3x speedup target is measured against.
+Three CUDA detectors score every LANL cyber1 (https://csr.lanl.gov/data/cyber1/) authentication event: lateral movement, fan-out and failed-logon bursts. A CUDA scoring kernel combines the three into one per-event score, and a Python driver handles preprocessing, the runs and the evaluation. Each CUDA program also carries a CPU version of the same algorithm. It times both versions and checks that they agree, which is what the 3x speedup target is measured against.
 
 ## Directory layout
 
