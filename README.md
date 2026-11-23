@@ -66,7 +66,7 @@ The outputs land in `work/`:
 2. Run:
 
 ```bash
-cd ~/lanl_project/gpu_threat_detection
+cd ~/gpu_threat_detection/src
 python3 run_pipeline.py --auth ../auth.txt.gz --redteam ../redteam.txt.gz \
         --start-time auto --events 4194304 --arch sm_75
 ```
