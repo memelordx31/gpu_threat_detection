@@ -1,0 +1,12 @@
+=== Authentication threat detection: lateral-movement detector ===
+GPU: Tesla T4 | CPU threads: 4 | hop window: 3600s | learning: t < 1252765 (1252761s) | runs: 6
+Loaded 131774 events from /home/ubuntu/gpu_threat_detection/src/work/events.bin, t = 4..5011050
+
+GPU (avg of 6): total 1.500 ms | best 1.467 ms
+CPU (avg of 6): total 41.359 ms | best 40.990 ms
+Verification: GPU vs CPU max |diff| = 0.000e+00, new edges 21779 vs 21779, hops 0 vs 0 -> MATCH
+Speedup (avg end-to-end incl. transfers): 27.57x
+
+New user->host edges: 21779 (16.528%) | hop chains: 0 | max score 2.000
+Wrote per-event lateral-movement scores to /home/ubuntu/gpu_threat_detection/src/work/lateral.bin
+RESULT {"detector":"lateral","n":131774,"gpu_ms":1.4999,"gpu_best_ms":1.4674,"cpu_ms":41.3592,"cpu_best_ms":40.9903,"cpu_threads":4,"new_edges":21779,"hops":0,"learn_end":1252765,"max_abs_diff":0,"match":1}

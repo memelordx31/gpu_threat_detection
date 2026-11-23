@@ -1,0 +1,14 @@
+=== Authentication threat detection: failed-logon burst detector ===
+GPU: Tesla T4 | CPU threads: 4 | key: user | windows: 60s / 3600s | threads: 256 | runs: 6
+Loaded 131774 events from /home/ubuntu/gpu_threat_detection/src/work/events.bin (1551 failed logons, 1.18%)
+
+GPU (avg of 6): total 0.623 ms | best 0.616 ms
+    H2D 0.202 | sort+scan 0.272 | windows+score 0.063 | D2H 0.087 ms
+CPU (avg of 6): total 24.838 ms | best 24.192 ms
+Verification: GPU vs CPU max |diff| = 0.000e+00, alerts 0 vs 0 -> MATCH
+Speedup (avg end-to-end incl. transfers): 39.84x
+
+Events with burst score > 0: 1631 (1.24%)
+Short-window alerts (>= 5 fails / 60s): 0 | max score 3.377
+Wrote per-event burst scores to /home/ubuntu/gpu_threat_detection/src/work/burst.bin
+RESULT {"detector":"failburst","n":131774,"gpu_ms":0.6235,"gpu_best_ms":0.6162,"gpu_h2d_ms":0.2016,"gpu_sort_ms":0.2715,"gpu_window_score_ms":0.0635,"gpu_d2h_ms":0.0869,"cpu_ms":24.8379,"cpu_best_ms":24.1915,"cpu_threads":4,"alerts":0,"nonzero":1631,"max_abs_diff":0,"match":1}

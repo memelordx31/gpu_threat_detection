@@ -1,0 +1,12 @@
+=== Authentication threat detection: fan-out detector ===
+GPU: Tesla T4 | CPU threads: 4 | key: src | buckets: 600s / 3600s | alert: D_short >= 10 | runs: 6
+Loaded 131774 events from /home/ubuntu/gpu_threat_detection/src/work/events.bin, t = 4..5011050
+
+GPU (avg of 6): total 1.104 ms | best 1.089 ms
+CPU (avg of 6): total 26.655 ms | best 26.319 ms
+Verification: GPU vs CPU max |diff| = 2.384e-07, alerts 63 vs 63 -> MATCH
+Speedup (avg end-to-end incl. transfers): 24.14x
+
+Active entity-buckets: 56633 short, 55295 long | alerts (D_short >= 10): 63 | max score 6.743
+Wrote per-event fan-out scores to /home/ubuntu/gpu_threat_detection/src/work/fanout.bin
+RESULT {"detector":"fanout","n":131774,"gpu_ms":1.1042,"gpu_best_ms":1.0894,"cpu_ms":26.6549,"cpu_best_ms":26.3189,"cpu_threads":4,"alerts":63,"max_abs_diff":2.38419e-07,"match":1}

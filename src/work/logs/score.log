@@ -1,0 +1,32 @@
+=== Authentication threat detection: combined per-event scoring ===
+GPU: Tesla T4 | CPU threads: 4 | weights: 1.00, 1.00, 1.00 | alert >= 0.950 | runs: 6
+  channel 1: /home/ubuntu/gpu_threat_detection/src/work/lateral.bin
+  channel 2: /home/ubuntu/gpu_threat_detection/src/work/fanout.bin
+  channel 3: /home/ubuntu/gpu_threat_detection/src/work/burst.bin
+Events: 131774
+
+GPU (avg of 6): total 0.657 ms | best 0.647 ms | to-combine 0.569 ms
+CPU (avg of 6): total 12.366 ms | best 11.962 ms
+Verification: GPU vs CPU max |diff| = 0.000e+00, alerts 0 vs 0 -> MATCH
+Speedup (avg end-to-end incl. transfers): 18.83x
+
+Alerts (score >= 0.950): 0 (0.000%) | max score 0.6646
+Score histogram (shared-memory reduction):
+  [0.0000, 0.0625)      71671
+  [0.0625, 0.1250)          0
+  [0.1250, 0.1875)      34380
+  [0.1875, 0.2500)          0
+  [0.2500, 0.3125)          0
+  [0.3125, 0.3750)       3582
+  [0.3750, 0.4375)          0
+  [0.4375, 0.5000)      13856
+  [0.5000, 0.5625)       7976
+  [0.5625, 0.6250)         35
+  [0.6250, 0.6875)        274
+  [0.6875, 0.7500)          0
+  [0.7500, 0.8125)          0
+  [0.8125, 0.8750)          0
+  [0.8750, 0.9375)          0
+  [0.9375, 1.0000)          0
+Wrote combined per-event scores to /home/ubuntu/gpu_threat_detection/src/work/combined.bin
+RESULT {"detector":"score","n":131774,"gpu_ms":0.6569,"gpu_best_ms":0.6468,"cpu_ms":12.3662,"cpu_best_ms":11.9624,"cpu_threads":4,"alerts":0,"max_score":0.664605,"max_abs_diff":0,"match":1}

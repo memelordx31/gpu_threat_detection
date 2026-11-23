@@ -1,0 +1,171 @@
+{
+  "data": {
+    "events": 131774,
+    "skipped_lines": 0,
+    "time_range": [
+      4,
+      5011050
+    ],
+    "users": 22168,
+    "computers": 11952,
+    "failed_logons": 1551,
+    "redteam_events": 702,
+    "seconds": 0.35
+  },
+  "args": {
+    "auth": "/home/ubuntu/gpu_threat_detection/auth.txt",
+    "redteam": "/home/ubuntu/gpu_threat_detection/redteam.txt",
+    "events": 4194304,
+    "start_line": 0,
+    "start_time": null,
+    "work": "/home/ubuntu/gpu_threat_detection/src/work",
+    "arch": "sm_75",
+    "build": "/home/ubuntu/gpu_threat_detection/src/build",
+    "no_build": false,
+    "cpu_only": false,
+    "legacy": false,
+    "threads": 256,
+    "runs": 6,
+    "cpu_threads": null,
+    "learn": -1,
+    "hop_window": 3600,
+    "fan_key": "src",
+    "fan_short": 600,
+    "fan_long": 3600,
+    "fan_alert": 10,
+    "burst_key": "user",
+    "burst_short": 60,
+    "burst_long": 3600,
+    "burst_alert": 5,
+    "weights": "1,1,1",
+    "alert": 0.95,
+    "mc": 16384,
+    "sample": 512,
+    "target_speedup": 3.0
+  },
+  "stages": {
+    "lateral": {
+      "detector": "lateral",
+      "n": 131774,
+      "gpu_ms": 1.4999,
+      "gpu_best_ms": 1.4674,
+      "cpu_ms": 41.3592,
+      "cpu_best_ms": 40.9903,
+      "cpu_threads": 4,
+      "new_edges": 21779,
+      "hops": 0,
+      "learn_end": 1252765,
+      "max_abs_diff": 0,
+      "match": 1
+    },
+    "fanout": {
+      "detector": "fanout",
+      "n": 131774,
+      "gpu_ms": 1.1042,
+      "gpu_best_ms": 1.0894,
+      "cpu_ms": 26.6549,
+      "cpu_best_ms": 26.3189,
+      "cpu_threads": 4,
+      "alerts": 63,
+      "max_abs_diff": 2.38419e-07,
+      "match": 1
+    },
+    "burst": {
+      "detector": "failburst",
+      "n": 131774,
+      "gpu_ms": 0.6235,
+      "gpu_best_ms": 0.6162,
+      "gpu_h2d_ms": 0.2016,
+      "gpu_sort_ms": 0.2715,
+      "gpu_window_score_ms": 0.0635,
+      "gpu_d2h_ms": 0.0869,
+      "cpu_ms": 24.8379,
+      "cpu_best_ms": 24.1915,
+      "cpu_threads": 4,
+      "alerts": 0,
+      "nonzero": 1631,
+      "max_abs_diff": 0,
+      "match": 1
+    },
+    "score": {
+      "detector": "score",
+      "n": 131774,
+      "gpu_ms": 0.6569,
+      "gpu_best_ms": 0.6468,
+      "cpu_ms": 12.3662,
+      "cpu_best_ms": 11.9624,
+      "cpu_threads": 4,
+      "alerts": 0,
+      "max_score": 0.664605,
+      "max_abs_diff": 0,
+      "match": 1
+    }
+  },
+  "verification": {
+    "lateral_gpu_vs_cpu": true,
+    "fanout_gpu_vs_cpu": true,
+    "burst_gpu_vs_cpu": true,
+    "score_gpu_vs_cpu": true
+  },
+  "speedup": {
+    "cpu_threads": 4,
+    "stages": [
+      {
+        "stage": "lateral",
+        "gpu_ms": 1.4999,
+        "cpu_ms": 41.3592,
+        "speedup": 27.574638309220614
+      },
+      {
+        "stage": "fanout",
+        "gpu_ms": 1.1042,
+        "cpu_ms": 26.6549,
+        "speedup": 24.139558051077703
+      },
+      {
+        "stage": "failburst",
+        "gpu_ms": 0.6235,
+        "cpu_ms": 24.8379,
+        "speedup": 39.83624699278268
+      },
+      {
+        "stage": "combined score",
+        "gpu_ms": 0.6569,
+        "cpu_ms": 12.3662,
+        "speedup": 18.82508753234891
+      }
+    ],
+    "total_gpu_ms": 3.8845,
+    "total_cpu_ms": 105.2182,
+    "total_speedup": 27.086677822113526,
+    "target": 3.0,
+    "meets_target": true,
+    "legacy": null
+  },
+  "detection": {
+    "lateral": {
+      "roc_auc": 0.43008116371611244,
+      "avg_precision": 0.010005172925050394,
+      "recall_at_k": NaN,
+      "recall_at_1pct": 0.021367521367521368
+    },
+    "fanout": {
+      "roc_auc": 0.9798065902840378,
+      "avg_precision": 0.700126343446703,
+      "recall_at_k": NaN,
+      "recall_at_1pct": 0.7535612535612536
+    },
+    "failburst": {
+      "roc_auc": 0.4951951007897358,
+      "avg_precision": 0.012224870676499688,
+      "recall_at_k": NaN,
+      "recall_at_1pct": 0.0
+    },
+    "combined": {
+      "roc_auc": 0.8208809007606616,
+      "avg_precision": 0.014964541114195009,
+      "recall_at_k": NaN,
+      "recall_at_1pct": 0.021367521367521368
+    }
+  }
+}
